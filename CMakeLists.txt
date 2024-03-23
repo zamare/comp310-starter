@@ -20,6 +20,24 @@ FetchContent_Declare(
   GIT_REPOSITORY https://github.com/google/googletest.git
   GIT_TAG        v1.14.0
 )
+cmake_minimum_required(VERSION 3.10)
+project(MyProject)
+
+# Add source files for the new target
+set(MY_PROJECT_SOURCES
+    source1.cpp
+    source2.cpp
+    # Add more source files if needed
+)
+
+# Create an executable or library target
+add_executable(MyProjectExecutable ${MY_PROJECT_SOURCES})
+
+# Alternatively, for a library target:
+# add_library(MyProjectLibrary ${MY_PROJECT_SOURCES})
+
+# Link libraries if needed
+# target_link_libraries(MyProjectExecutable PRIVATE OtherLib)
 
 # Windows workaround (don't ask) 
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
@@ -33,9 +51,13 @@ add_subdirectory(lwlog-lib)
 add_subdirectory(lwlog-demo)
 add_subdirectory(gtest-demo)
 add_subdirectory(WarmUp_1)
+add_subdirectory(R-forth)
+add_library(R-forth_1Lib source.cpp)
+add_library(R-forth_1Lib main.cpp)
 
 add_subdirectory(WarmUp_10)
 add_executable(your_executable_name main.c token.c)
+
 
 
 
